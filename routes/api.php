@@ -2,18 +2,24 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\ChallengesController;
+use App\Http\Controllers\ProgramsController;
+use App\Http\Controllers\CompaniesController;
+use App\Http\Controllers\ProgramsParticipantsController;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
-*/
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+//Obteniendo todas las rutas para la api de Users
+Route::apiResource('users',UsersController::class);
+
+//Obteniendo todas las rutas para la api de challenges
+Route::apiResource('challenges',ChallengesController::class);
+
+//Obteniendo todas las rutas para la api de programs
+Route::apiResource('programs',ProgramsController::class);
+
+//Obteniendo todas las rutas para la api de companies
+Route::apiResource('companies',CompaniesController::class);
+
+//Obteniendo todas las rutas para la api de programs_participants
+Route::apiResource('programs_participants',ProgramsParticipantsController::class);
